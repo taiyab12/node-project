@@ -18,4 +18,21 @@ router.get( '/', function( req, res ) {
     });
 });
 
+router.get( '/:quoteId', function( req, res ) {
+    const quoteId = req.params.quoteId;
+    console.log(quoteId)
+    Quotes
+        .findOne( { _id: quoteId } )
+        .exec(function( error, quote ) {
+        if( error ) {
+            res.json({
+                message: 'Error retrieving product details from DB : ' + error.message
+            });
+            return;
+        }
+
+        res.status(200).json( quote );
+    })
+});
+
 module.exports = router;

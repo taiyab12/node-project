@@ -42,15 +42,15 @@ app.use(function(err, req, res, next) {
   res.json('error');
 });
 
-// const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8083;
 
-// app.listen( port, function( error ) {
-//     if( error ) {
-//         console.log( 'error starting server' );
-//         return;
-//     }
+app.listen( port, function( error ) {
+    if( error ) {
+        console.log( 'error starting server' );
+        return;
+    }
 
-//     console.log( 'Check http://localhost:8081/' );
-// });
+    console.log( 'Check http://localhost:8083/' );
+});
 
 module.exports = app;
