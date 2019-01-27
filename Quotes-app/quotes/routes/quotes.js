@@ -35,4 +35,26 @@ router.get( '/:quoteId', function( req, res ) {
     })
 });
 
+router.post( '/', function( req, res ) {
+    const quote = req.body;
+    console.log(quote)
+    if( !req.body ) { // false, undefined, null, '',
+        res.json({
+            message: 'No quote details - request body is empty'
+        });
+        return;
+    }
+
+    // add the product (DB query)
+    let quoteObj = new Quotes( quote );
+    quoteObj.save(function( error, savedQuote ) {
+        if( error ) {
+            res.json({
+                message: 'Some error occured saving product'
+            });
+            return;
+        }
+        res.status( 201 ).json( savedQuote );
+    });
+});
 module.exports = router;
