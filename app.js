@@ -12,6 +12,7 @@ var swaggerJSDoc = require('swagger-jsdoc');
 
 var quotesRouter = require('./routes/quotes');
 var registerRouter = require('./routes/register');
+var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -52,7 +53,7 @@ app.get('/swagger.json', function(req, res) {
 
 app.use('/quotes', quotesRouter);
 app.use('/register', registerRouter);
-// app.use('/reviews',reviewRouter)
+app.use('/login',loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const router = express.Router();
 
 
-const User = mongoose.model('User');
+const User = mongoose.model('Users');
 
 router.post('/', (req, res) => {
 // console.log('Here in register POST');
